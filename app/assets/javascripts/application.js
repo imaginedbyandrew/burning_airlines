@@ -15,4 +15,5 @@
 //= require underscore
 //= require backbone
 //= require handlebars
+//= require_tree ./models
 //= require_tree .

@@ -1,2 +1,11 @@
 @import 'jeet/index';
 
+.seat {
+	// @include col(1/4);
+	height: 10px;
+	width: 10px;
+	background-color: grey;
+	padding: 1em;
+	margin: 1em;
+
+}
