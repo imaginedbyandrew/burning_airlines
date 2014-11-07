@@ -4,7 +4,15 @@ class FlightsController < ApplicationController
   # GET /flights
   # GET /flights.json
   def index
-    @flights = Flight.all
+    origin = params['origin']
+    des = params['destination']
+
+    if origin && des
+      @flights = Flight.where("origin = ? AND destination = ?", origin, des)
+    else         
+      @flights = Flight.all
+    end
+
   end
 
   # GET /flights/1

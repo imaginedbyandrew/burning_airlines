@@ -4,7 +4,12 @@ class SeatsController < ApplicationController
   # GET /seats
   # GET /seats.json
   def index
-    @seats = Seat.all
+    f_id = params['flight_id']
+    if f_id
+      @seats = Seat.where(flight_id: f_id) 
+    else 
+      @seats = Seat.all
+    end
   end
 
   # GET /seats/1

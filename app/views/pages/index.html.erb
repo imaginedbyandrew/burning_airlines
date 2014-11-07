@@ -1,0 +1,39 @@
+<h1>Burning Airlines</h1>
+<div id="main">
+</div>
+
+<script type="templates/handlebars" id="seatView">
+</script>
+
+<script type="templates/handlebars" id="seatsView">
+</script>
+
+<script type="templates/handlebars" id="searchView">
+	<div class="searchView">
+		<h2> Search flights </h2>
+		To:<input type="text" class="to"></input>
+		From:<input type="text" class="from"></input> 
+		<input type="submit" class="subSearch">
+	</div>
+</script>
+
+<script type="templates/handlebars" id="flightList">
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Callsign</th>
+	      <th>Origin</th>
+	      <th>Destination</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    {{#each flights}}
+	    	<tr>
+	    		<td><a href="#/flights/{{ id }}">{{ callsign }}</a></td>
+	    		<td>{{ origin }}</td>
+	    		<td>{{ destination }}</td>
+	    	</tr>
+	    {{/each}}
+	  </tbody>
+	</table>
+</script>
