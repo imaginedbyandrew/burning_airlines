@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root :to => 'pages#index'
+
+
   resources :seats
 
   resources :flights
@@ -6,6 +9,11 @@ Rails.application.routes.draw do
   resources :passengers
 
   resources :planes
+
+  get '/login' => 'session#new'
+  post '/login' => 'session#create'
+  delete '/login' => 'session#destroy'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
