@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: planes
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  rows       :integer
+#  column     :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  rows: 1
+  column: 1
+
+two:
+  name: MyString
+  rows: 1
+  column: 1

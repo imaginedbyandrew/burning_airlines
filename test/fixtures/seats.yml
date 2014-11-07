@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: seats
+#
+#  id           :integer          not null, primary key
+#  flight_id    :integer
+#  passenger_id :integer
+#  name         :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  flight_id: 1
+  passenger_id: 1
+  name: MyString
+
+two:
+  flight_id: 1
+  passenger_id: 1
+  name: MyString

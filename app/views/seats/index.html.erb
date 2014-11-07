@@ -1,0 +1,29 @@
+<h1>Listing seats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Flight</th>
+      <th>Passenger</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @seats.each do |seat| %>
+      <tr>
+        <td><%= seat.flight_id %></td>
+        <td><%= seat.passenger_id %></td>
+        <td><%= seat.name %></td>
+        <td><%= link_to 'Show', seat %></td>
+        <td><%= link_to 'Edit', edit_seat_path(seat) %></td>
+        <td><%= link_to 'Destroy', seat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Seat', new_seat_path %>
