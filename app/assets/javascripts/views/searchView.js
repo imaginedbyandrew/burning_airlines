@@ -28,6 +28,7 @@ app.Views.SearchView = Backbone.View.extend({
 			success: function(flights, res, opts){
 				var flightsView = new app.Views.FlightsView({collection: flights});
 				flightsView.render();
+				search.$el.html(flightsView.el)
 			}	
 		});
 	}

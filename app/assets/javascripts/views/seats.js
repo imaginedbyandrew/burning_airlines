@@ -11,12 +11,14 @@ app.Views.SeatsView = Backbone.View.extend({
 	},
 
 	render: function() {
-		$('.flightView').append(this.$el);
-
-		this.collection.each(function(seat) {
-			var view = new app.Views.SeatView({model: seat})
-			view.render();
-		});
+		this.collection.forEach(this.addOne, this);
+		// $('.flightView').append(this.$el);
 	},
+
+	addOne: function(seat) {
+		var view = new app.Views.SeatView({model: seat})
+		view.render();
+		this.$el.append(view.$el)
+	}
 });
 

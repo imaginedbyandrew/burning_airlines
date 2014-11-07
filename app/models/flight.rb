@@ -27,7 +27,7 @@ class Flight < ActiveRecord::Base
 		total_seats.times do |s|
 			seat = Seat.new()
 			seat.flight_id = self.id
-			name = s.to_s
+			seat.name = s.to_s
 			seat.save
 		end 
 	end

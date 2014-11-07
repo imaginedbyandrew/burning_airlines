@@ -22,6 +22,7 @@ app.Views.FlightView = Backbone.View.extend({
 			success: function(seats, res, opts){
 				var seatSelectionView = new app.Views.SeatsView({collection: seats});
 				seatSelectionView.render();
+				flight.$el.html(seatSelectionView.el);
 			}	
 		});
 	},

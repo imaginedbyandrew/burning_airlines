@@ -18,11 +18,11 @@ app.Views.SeatView = Backbone.View.extend({
 		this.$el.html( seatViewHTML(this.model.toJSON()) );
 
 		// TODO: put seat on page
-		$('.seatsView').append(this.el);
+		// $('.seatsView').append(this.el);
 	},
 
 	clickSeat: function() {
-		alert('Clicked seat ' + this.model.id);
+		alert('Clicked seat ' + this.model.get('name'));
 	}
 });
 
