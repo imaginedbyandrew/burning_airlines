@@ -11,4 +11,7 @@
 
 class Passenger < ActiveRecord::Base
 	has_many :seats
+	has_secure_password
+
+	validates :name, presence: true, uniqueness: true, length: {minimum: 3}
 end

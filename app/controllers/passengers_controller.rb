@@ -69,6 +69,6 @@ class PassengersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def passenger_params
-      params.require(:passenger).permit(:name, :password_digest)
+      params.require(:passenger).permit(:name, :password, :password_confirmation)
     end
 end
