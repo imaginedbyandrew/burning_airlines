@@ -16,13 +16,11 @@ app.Views.SearchView = Backbone.View.extend({
 		$('#main').html(renderHTML(this.$el));
 	},
 	searchFlights: function(){
-		console.log('test');
 		var to = $('.to').val();
 		var from = $('.from').val();
+		var search = this;	
 
 		var flightCollection = new app.Collections.Flights()
-		var search = this;
-
 		flightCollection.fetch({
 			data: {origin: from, destination: to}, // this.model.id
 			success: function(flights, res, opts){
