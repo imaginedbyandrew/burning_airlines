@@ -6,7 +6,7 @@ class SeatsController < ApplicationController
   def index
     f_id = params['flight_id']
     if f_id
-      @seats = Seat.where(flight_id: f_id) 
+      @seats = Seat.where(flight_id: f_id).order(:id) 
     else 
       @seats = Seat.all
     end

@@ -18,18 +18,19 @@ class Flight < ActiveRecord::Base
 	after_save :create_seats
 
 	def create_seats
-	  # CREATE ALL THE SEATS FOR THE FLIGHT
-		# find out how many seats are on the plane
 		plane = Plane.find self.plane_id
-		total_seats = plane.rows * plane.column
 
-		# loop through and create that many seats with the flight id and no passenger
-		total_seats.times do |s|
-			seat = Seat.new()
-			seat.flight_id = self.id
-			seat.name = s.to_s
-			seat.save
+		plane.rows.times do |r|
+			col_letter = "a"
+			plane.column.times do
+				seat = Seat.new()
+				seat.flight_id = self.id
+				seat.name = "#{r}#{col_letter}"
+				seat.save
+				col_letter.succ!
+			end 
 		end 
+		
 	end
 
 end

@@ -6,11 +6,16 @@
 		<div id="main">
 		</div>
 
-
-		<script type="templates/handlebars" id="seatView">
-		</script>
-
 		<script type="templates/handlebars" id="seatsView">
+			test
+			{{#each row}}
+				test
+				// <div class="seatRow">
+				// {{#each ../columns}}
+				// 	<div class="seat"></div>
+				// {{/each}}
+				// </div>
+			{{/each}}
 		</script>
 
 		<script type="templates/handlebars" id="searchView">
@@ -18,7 +23,8 @@
 				<h2> Search flights </h2>
 				To:<input type="text" class="to"></input>
 				From:<input type="text" class="from"></input> 
-				<input type="submit" class="subSearch">
+				<button class="subSearch">Search!</button>
+				<div class="searches"></div>
 			</div>
 		</script>
 
