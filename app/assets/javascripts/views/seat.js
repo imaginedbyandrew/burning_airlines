@@ -10,19 +10,24 @@ app.Views.SeatView = Backbone.View.extend({
 	},
 
 	initialize: function() {
-		this.template = $('#seatView').html();
+		this.render()
 	},	
-
 	render: function() {
-		var seatViewHTML = Handlebars.compile(this.template);
-		this.$el.html( seatViewHTML(this.model.toJSON()) );
-
-		// TODO: put seat on page
-		// $('.seatsView').append(this.el);
+		// if (this.model.get('passenger_id')) {
+			// console.log('test');
+		// }
+		if (this.model.get('passenger_id')) {
+			this.$el.addClass('taken');
+		}
+		this.$el.html(this.model.get('name'));
 	},
 
 	clickSeat: function() {
-		alert('Clicked seat ' + this.model.get('name'));
+		if (this.model.get('passenger_id')) {
+			return;
+		} else {
+			this.$el.toggleClass('selected');
+		}
 	}
 });
 
