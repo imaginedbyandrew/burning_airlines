@@ -9,6 +9,6 @@ app.Views.FlightsView = Backbone.View.extend({
 	},
 	render: function(){
 		var renderHTML = Handlebars.compile(this.template);
-		$('.searchView').append(renderHTML({flights: this.collection.toJSON()}));
+		this.$el.append(renderHTML({flights: this.collection.toJSON()}));
 	},
 });
