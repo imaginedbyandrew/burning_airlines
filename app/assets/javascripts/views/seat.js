@@ -27,6 +27,11 @@ app.Views.SeatView = Backbone.View.extend({
 			return;
 		} else {
 			this.$el.toggleClass('selected');
+			if (this.model.get('selected')) {
+				this.model.set({selected: false});
+			} else {
+				this.model.set({selected: true});
+			}	
 		}
 	}
 });

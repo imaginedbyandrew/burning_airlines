@@ -6,10 +6,15 @@ app.Views = app.Views || {};
 app.Views.SeatsView = Backbone.View.extend({
 	className: 'seatsView',
 
+	events: {
+		'click #bookSeats': 'book'
+	},
+
 	initialize: function() {
 
 	},
 	render: function() {
+		this.$el.html('');
 		// For each row
 		var seatView = this;
 		var currentSeat = 0;
@@ -28,14 +33,18 @@ app.Views.SeatsView = Backbone.View.extend({
 			// put the div at the bottom of the flight
 			this.$el.append($seatRow);
 		}, this);
+		$button = $('<button id="bookSeats">');
+		$button.text('Book');
+		this.$el.append($button);
 			
-		// this.collection.forEach(this.addOne, this);
 	},
-
-	addOne: function(seat) {
-		var view = new app.Views.SeatView({model: seat})
-		view.render();
-		this.$el.append(view.$el)
+	book: function(){
+		var seatsToBook = this.collection.where({selected: true});
+		_.each(seatsToBook, function(seat) {
+			seat.set({passenger_id: 1});
+			seat.save();
+		});
+		this.render();
 	}
 });
 
