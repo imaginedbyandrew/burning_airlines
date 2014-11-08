@@ -6,12 +6,13 @@ app.AppRouter = Backbone.Router.extend({
 	routes: {
 		'': 'index',
 		'search': 'showSearch',
+		'flights/new': 'newFlight',
 		'flights/:id': 'showFlight',
 		'search/:o/:d': 'search'
 	},
 
 	showFlight: function(id){
-		var flight = new app.Models.Flight({id: parseInt(id)});
+		var flight = app.Models.Flight(id);
 		flight.fetch({
 			success: function(){
 				var flightView = new app.Views.FlightView({model: flight});
@@ -19,6 +20,14 @@ app.AppRouter = Backbone.Router.extend({
 			}
 		});
 	},
+	newFlight: function(callsign, origin, destination, plane_id) {
+		this.newFlight();
+		var flight = new app.Model.Flight();
+
+		var flightView = new app.Views.FlightView({model: flight})
+		flightView.render();
+	},
+
 	showSearch: function() {
 		var view = new app.Views.SearchView();
 		view.render();

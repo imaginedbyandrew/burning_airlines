@@ -3,6 +3,7 @@
 		<h1>Burning Airlines</h1>
 		<!-- Search -->
 		<a href="#/search">Search</a>
+		<a href="#/newFlight" id="newFlight">New Flight</a>
 		<div id="main">
 		</div>
 
@@ -48,7 +49,43 @@
 			  </tbody>
 			</table>
 		</script>
+
+
+		<script type="template/html" id="flightNewView">
+			<h2>New Flight</h2>
+		
+			<%= form_for Flight.new do |f| %>
+
+		  <div class="field">
+		    <%= f.label :callsign %><br>
+		    <%= f.text_field :callsign %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :origin %><br>
+		    <%= f.text_field :origin %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :destination %><br>
+		    <%= f.text_field :destination %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :plane_id %><br>
+		    <%= f.number_field :plane_id %>
+		  </div>
+		  <div class="actions">
+		    <%= f.submit %>
+		  </div>
+		<% end %>
+		</script>
+
+
+
 	</div>
+
+
+
+
 <% else %>
+<%= link_to 'Sign up', '/signup' %>
 <h1>PLS LOGIN</h1>
 <% end %>
